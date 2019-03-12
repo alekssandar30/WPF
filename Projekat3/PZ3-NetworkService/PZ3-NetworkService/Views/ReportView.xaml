@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="PZ3_NetworkService.Views.ReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PZ3_NetworkService.Views"
+             xmlns:vml="clr-namespace:PZ3_NetworkService.VML"
+             vml:ViewModelLocator.AutoHookedUpViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Height="50">
+            <DatePicker Width="120" Height="30" SelectedDate="{Binding StartDate, Mode=TwoWay}"
+                        Margin="0,20,0,0" HorizontalAlignment="Left" Text="Start Date"
+                        DisplayDate="{Binding DateTime.Now}"/>
+            <DatePicker Width="117" Height="30" SelectedDate="{Binding EndDate, Mode=TwoWay}"
+                        HorizontalAlignment="Left" Text="End Date" Margin="127,-31,0,0"
+                        DisplayDate="{Binding DateTime.Now}"/>
+            <Button Command="{Binding Show}" HorizontalAlignment="Right" 
+                Content="SHOW" Width="93" Height="36" Margin="0,-50,5,0" 
+                FontWeight="Bold" FontSize="15" FontFamily="MS Reference Sans Serif"
+                Cursor="Hand" Background="#FFE2D9B3" VerticalAlignment="Center">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+
+        </StackPanel>
+        
+        <Separator BorderThickness="2" BorderBrush="DarkGoldenrod" Grid.Row="1" Margin="0 5 0 0" VerticalAlignment="Top"/>
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="#FFC3A003" Height="300" Margin="0 10 0 0">
+            <ScrollViewer  VerticalScrollBarVisibility="Auto">
+                <TextBlock Text="{Binding Text}" FontSize="18"/>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>
